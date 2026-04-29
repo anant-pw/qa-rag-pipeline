@@ -1,0 +1,40 @@
+Test Suite: Login Module
+
+TC001 - Valid Login
+Steps: Enter valid username and password. Click login.
+Expected: User is redirected to dashboard. Session token is created.
+Tags: smoke, regression
+
+TC002 - Invalid Password
+Steps: Enter valid username and wrong password. Click login.
+Expected: Error message displayed. Account locked after 3 attempts.
+Tags: negative, security
+
+TC003 - Empty Fields
+Steps: Leave username and password blank. Click login.
+Expected: Validation error shown for both fields.
+Tags: negative, validation
+
+TC004 - SQL Injection
+Steps: Enter SQL injection string in username field.
+Expected: Input sanitized. No database error exposed.
+Tags: security, negative
+
+TC005 - Session Timeout
+Steps: Login successfully. Leave session idle for 30 minutes.
+Expected: User auto logged out. Redirect to login page.
+Tags: session, regression
+
+Bug Report BR001 - Login button unresponsive on Safari
+Severity: High
+Steps to reproduce: Open Safari 16. Navigate to login page. Enter credentials. Click login.
+Actual: Nothing happens. Console shows JS error.
+Expected: Successful login redirect.
+Status: Open
+
+Bug Report BR002 - Password field shows plain text on iOS
+Severity: Medium
+Steps: Open on iPhone Safari. Type password.
+Actual: Password visible as plain text briefly before masking.
+Expected: Password always masked.
+Status: Fixed
