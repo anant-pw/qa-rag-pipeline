@@ -55,6 +55,22 @@ grounded answer ("Not found in QA docs" if absent)
 | LLM | Groq + `llama-3.1-8b-instant` | Free tier, ~1s response, no GPU needed |
 | Web UI | Streamlit | Browser interface in ~10 lines of Python |
 
+### 📐 Embedding model dimensions — what changes in production
+
+Every embedding model outputs a fixed number of dimensions. This number must match your Qdrant collection `size` exactly — mismatch = error on every upload.
+
+| Model | Dims | Cost | Best for |
+|---|---|---|---|
+| `all-MiniLM-L6-v2` | 384 | Free, CPU | Learning, prototypes |
+| `OpenAI text-embedding-3-small` | 1536 | Paid, cheap | Production, good quality |
+| `OpenAI text-embedding-3-large` | 3072 | Paid, expensive | Best quality, complex docs |
+| `Cohere embed-v3` | 1024 | Paid | Multilingual |
+| `Voyage AI` | 1024 | Paid | Code search (used by Cursor) |
+
+More dimensions = model tracks more aspects of meaning = better retrieval quality = more storage + slower search.
+
+In this project `size=384` is set in `ingest.py` to match `all-MiniLM-L6-v2`. Switching to OpenAI embeddings requires changing `size=1536`, deleting the old Qdrant collection, and re-running `ingest.py` from scratch. You cannot hot-swap embedding models — all chunks must be re-embedded in the new model's vector space.
+
 ---
 
 ## 🚀 Setup (15 minutes)
