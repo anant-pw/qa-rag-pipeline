@@ -1,6 +1,6 @@
 # 🔍 QA Knowledge Bot — RAG Pipeline
 
-A production-grade RAG (Retrieval-Augmented Generation) system that lets you ask questions about your QA docs — test cases, bug reports, SRS — and get grounded answers with source attribution.
+A production-oriented learning RAG (Retrieval-Augmented Generation) system that lets you ask questions about your QA docs — test cases, bug reports, SRS — and get grounded answers with source attribution.
 
 Built from scratch to understand every layer of RAG. No black boxes.
 
