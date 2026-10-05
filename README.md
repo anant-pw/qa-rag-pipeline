@@ -1,5 +1,7 @@
 # 🔍 QA Knowledge Bot — RAG Pipeline
 
+> **Learning project.** My first RAG build, kept for reference and not maintained. The later, fuller version is [qa-agentic-rag](https://github.com/anant-pw/qa-agentic-rag).
+
 A production-oriented learning RAG (Retrieval-Augmented Generation) system that lets you ask questions about your QA docs — test cases, bug reports, SRS — and get grounded answers with source attribution.
 
 Built from scratch to understand every layer of RAG. No black boxes.
